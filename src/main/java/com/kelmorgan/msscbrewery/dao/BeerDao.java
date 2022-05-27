@@ -1,6 +1,6 @@
 package com.kelmorgan.msscbrewery.dao;
 
-import com.kelmorgan.msscbrewery.api.v1.model.BeerDto;
+import com.kelmorgan.msscbrewery.api.v1.models.BeerDto;
 
 import java.util.UUID;
 

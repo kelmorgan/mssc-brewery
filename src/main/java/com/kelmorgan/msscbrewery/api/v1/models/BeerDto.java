@@ -1,4 +1,4 @@
-package com.kelmorgan.msscbrewery.api.v1.model;
+package com.kelmorgan.msscbrewery.api.v1.models;
 
 import lombok.Builder;
 import lombok.Data;

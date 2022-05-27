@@ -1,7 +1,7 @@
 package com.kelmorgan.msscbrewery.dao.impl;
 
 import com.kelmorgan.msscbrewery.dao.BeerDao;
-import com.kelmorgan.msscbrewery.api.v1.model.BeerDto;
+import com.kelmorgan.msscbrewery.api.v1.models.BeerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

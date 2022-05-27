@@ -1,6 +1,6 @@
 package com.kelmorgan.msscbrewery.api.v1.controllers;
 
-import com.kelmorgan.msscbrewery.api.v1.model.CustomerDto;
+import com.kelmorgan.msscbrewery.api.v1.models.CustomerDto;
 import com.kelmorgan.msscbrewery.dao.CustomerDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
