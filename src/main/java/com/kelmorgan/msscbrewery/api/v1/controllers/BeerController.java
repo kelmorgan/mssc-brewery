@@ -8,6 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -26,12 +30,12 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createBeer(@RequestBody BeerDto beerDto) {
+    public ResponseEntity<Void> createBeer(@Valid @RequestBody BeerDto beerDto) {
 
         BeerDto savedBeerDto = beerDao.saveBeer(beerDto);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", BASE_URL + " /" + savedBeerDto.getId().toString());
+        headers.add("Location", BASE_URL + "/" + savedBeerDto.getId());
 
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
 
@@ -39,7 +43,7 @@ public class BeerController {
 
     @PutMapping({"/{beerId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateBeer(@PathVariable UUID beerId, @RequestBody BeerDto beerDto) {
+    public void updateBeer(@PathVariable UUID beerId, @Valid @RequestBody BeerDto beerDto) {
         beerDao.updateBeer(beerId, beerDto);
     }
 
@@ -48,6 +52,8 @@ public class BeerController {
     public void deleteBeerById(@PathVariable UUID beerId) {
         beerDao.deleteBeer(beerId);
     }
+
+
 
 
 }

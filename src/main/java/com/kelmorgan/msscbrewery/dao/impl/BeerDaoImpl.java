@@ -5,6 +5,7 @@ import com.kelmorgan.msscbrewery.api.v1.model.BeerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
 import java.util.UUID;
 
 @Slf4j
@@ -16,6 +17,7 @@ public class BeerDaoImpl implements BeerDao {
                 .id(beerId)
                 .beerName("Star")
                 .beerStyle("Shine Shine Bo Bo")
+                .upc(new Random().nextLong())
                 .build();
     }
 

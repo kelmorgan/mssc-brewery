@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -25,7 +26,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createBeer(@RequestBody CustomerDto customerDto) {
+    public ResponseEntity<Void> createBeer(@Valid @RequestBody CustomerDto customerDto) {
         CustomerDto saveCustomer = customerDao.saveCustomer(customerDto);
 
         HttpHeaders headers = new HttpHeaders();
@@ -36,7 +37,7 @@ public class CustomerController {
 
     @PutMapping({"/{customerId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateCustomer(@PathVariable UUID customerId, @RequestBody CustomerDto customerDto) {
+    public void updateCustomer(@PathVariable UUID customerId,@Valid @RequestBody CustomerDto customerDto) {
         customerDao.updateCustomer(customerId, customerDto);
     }
 
@@ -45,4 +46,6 @@ public class CustomerController {
     public void deleteBeerById(@PathVariable UUID customerId) {
         customerDao.deleteCustomer(customerId);
     }
+
+
 }
